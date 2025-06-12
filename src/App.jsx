@@ -10,17 +10,25 @@ import SavedJobPage from "./pages/SavedJobPage";
 import { ThemeProvider } from "./components/theme-provider";
 import ProtectedRoute from "./components/protected-route";
 
+/**
+ * Main App Component:
+ * - Sets up all routes (with protection where needed)
+ * - Wraps with theme provider
+ */
 function App() {
+  // Define the route structure for the entire app
   const router = createBrowserRouter([
     {
+      // Use AppLayout for all pages (with <Outlet />)
       element: <AppLayout />,
       children: [
         {
           path: "/",
-          element:<LandingPage />,
+          element: <LandingPage />, // Public landing page
         },
         {
           path: "/onboarding",
+          // Onboarding (protected, must be signed in)
           element: (
             <ProtectedRoute>
               <OnboardingPage />
@@ -29,6 +37,7 @@ function App() {
         },
         {
           path: "/jobs",
+          // Job listing (protected)
           element: (
             <ProtectedRoute>
               <JobListing />
@@ -37,6 +46,7 @@ function App() {
         },
         {
           path: "/job/:id",
+          // Single job details (protected)
           element: (
             <ProtectedRoute>
               <Job />
@@ -45,6 +55,7 @@ function App() {
         },
         {
           path: "/post-job",
+          // Post a job (protected, recruiter only)
           element: (
             <ProtectedRoute>
               <PostJobPage />
@@ -53,6 +64,7 @@ function App() {
         },
         {
           path: "/saved-jobs",
+          // Saved jobs (protected, candidate only)
           element: (
             <ProtectedRoute>
               <SavedJobPage />
@@ -61,9 +73,9 @@ function App() {
         },
         {
           path: "/my-jobs",
+          // My jobs/applications (protected, user-dependent UI)
           element: (
             <ProtectedRoute>
-              {" "}
               <MyJobsPage />
             </ProtectedRoute>
           ),
@@ -72,6 +84,7 @@ function App() {
     },
   ]);
 
+  // Provide the theme context and the router to the entire app
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <RouterProvider router={router} />
