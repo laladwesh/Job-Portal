@@ -43,9 +43,6 @@ src/
 ├── index.css # Global styles
 └── App.jsx # Main app & router
 
-yaml
-Copy
-Edit
 
 ---
 
@@ -66,16 +63,11 @@ npm install
 Environment Variables
 Create a .env file in the project root:
 
-env
-Copy
-Edit
 VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 VITE_SUPABASE_URL=your_supabase_url
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 Run the App
-sh
-Copy
-Edit
+
 npm run dev
 The app will be available at http://localhost:5173 (or your configured port).
 
