@@ -7,18 +7,50 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Dependency directories
+node_modules/
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+out/
+.next/
 *.local
 
+# Local env files
+.env
+.env.*.local
+
 # Editor directories and files
-.vscode/*
+.vscode/
 !.vscode/extensions.json
-.idea
-.DS_Store
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Misc
+coverage/
+.nyc_output/
+*.tgz
+*.zip
+
+# Mac and Linux hidden files
+._*
+*.pid
+
+# VS Code history, workspace, or backup files
+.history/
+.vscode-history/
+*.code-workspace
+
+# Optional: ignore test outputs
+test-results/
+junit.xml
